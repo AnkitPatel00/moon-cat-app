@@ -33,6 +33,24 @@ res.status(500).json({message:"Server Error",error})
   }
  })
 
+router.post("/login",async (req,res) => {
+  const { username, password } = req.body
+  try {
+    const user = await User.findOne({ username })
+    if (!user) return res.status(404).json({message:"User not found."})
+
+    const isPasswordMatch = await user.comparePassword(password)
+    if (!isPasswordMatch) return res.status(400).json({ message: "Invalid Credentials" })
+    
+    res.status(200).json({message:"Login successfull",username:user.username})
+  
+  }
+  catch (error)
+  {
+res.status(500).json({message:"Server error while login.",error:error})
+  }
+ })
+
 
 
 

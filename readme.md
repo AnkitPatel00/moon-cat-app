@@ -13,3 +13,7 @@
   - POST - /auth/register
       - username (unique)
       - password
+      
+  - POST - /auth/login
+      - username
+      - password
