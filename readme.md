@@ -7,6 +7,7 @@
  - Bcrypt
  - JsonWebToken
  - Mongoose
+ - socket.io
 
  ### Apis
 
@@ -17,3 +18,13 @@
   - POST - /auth/login
       - username
       - password
+
+  - GET - /messages
+      - sender
+      - receiver
+
+  - GET - /users
+      - currentUser
+
+
+      
